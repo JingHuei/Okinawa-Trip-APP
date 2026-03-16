@@ -1,9 +1,106 @@
+https://jinghuei.github.io/Okinawa-Trip-APP/
+
+# Role
+你是一位精通 HTML5, Tailwind CSS, vue.js 和 JavaScript 的資深前端工程師。
+
+請你幫我製作一個「單頁式旅遊 Web App (Single File HTML)」，這個網頁不需要後端，所有的資料儲存都使用瀏覽器的 LocalStorage，並且我會將他掛在我的 github 上面提供我在旅遊時使用。
+
+# Goal
+製作一個適合手機瀏覽、介面精美、功能實用的旅遊小工具，供我的親友在旅行時使用。
+
+# Design Style (視覺風格)
+請依照以下風格進行 UI 設計：
+* 我想要的風格：粉嫩可愛卡通風
+* 請搭配適合該風格的 Google Fonts 字體。
+* 配色請符合上述風格設定。
+* 卡片與按鈕的導角、陰影請依照該風格調整。
+
+# Input Data (行程資訊)
+這是我的旅遊資訊，請將其整合進網頁內容中：
+
+1. **航班資訊：請在上方顯示小飛機icon和「峇迪航空」，並且完整呈現去/回程、航班編號、航程時間、出發/到達機場（幫我以最佳視覺化排版呈現，適時加上小icon）**：
+
+|去/回程| 航班編號 | 航程時間    | 出發機場             | 到達機場             |
+|-----| -------- | ----------- | -------------------- | -------------------- |
+|去程| OD 882  | 13:10-15:30 | 桃園機場第一航廈 | 那霸機場 |
+|回程| OD 883   | 16:30–17:15 | 那霸機場 | 桃園機場第一航廈 |
+
+2.  **每日行程：請幫我完整保留每日行程在網頁中呈現，並且以無順序的清單陳列，目前沒有規劃時間的行程請幫我加上推估的時間**：
+
+Day1  3/21
+11:00 桃園機場(集合、託運行李、出境、登機) ➨ 15:30 那霸機場(抵達下飛機、入境) ➨ BGA租車 ➨ 美國村(三麗鷗店(買長腿Kitty)、依狀況調整逛街順序) ➨ 20:00前到日落大道看煙火 ➨ 北上往名護 ➨ Check in //還元ホテル 名護大宮 ➨ 入住[還元ホテル 名護大宮](https://br.bluepillow.com/search/5d6c8432c162693e7449ea17?dest=bkng&cat=Apartment&lat=26.60592&lng=127.97903&language=pt) 
+
+Day2  3/22
+Potama / A&W (早餐二選一,必吃沖繩飯糰)➨ 美麗海水族館 ➨ 漁師食堂 ➨古宇利島(古古宇利大橋、古宇利塔、愛心石、休息站) ➨ Yakiniku Kochan ➨ AEON (Uniqlo, Daiso, Best Denki) ➨ MEGA 唐吉訶德 名護店 ➨ 入住[還元ホテル 名護大宮](https://br.bluepillow.com/search/5d6c8432c162693e7449ea17?dest=bkng&cat=Apartment&lat=26.60592&lng=127.97903&language=pt) 
+
+Day3  3/23
+許田休息站 ➨ Parco city(吉依卡哇店和限定餐廳(逛逛看一看,有緣有時間就吃)、逛街、大型海景商場) ➨ 港川外人住宅(oHacorte) ➨ 泊港漁市場 ➨ 波上宮➨ check in //托麗芙特酒店 ➨ 國際通/牧志市場 ➨ 入住[托麗芙特酒店](https://torifito.jp/nahaab/) 
+
+Day4  3/24
+iias 沖繩豐崎 (A&W, DMM Kariyushi水族館, Uniqlo, 西松屋) ➨ 瀨長島 ➨ 系滿漁市場 ➨ 沖繩世界文化王國(玉泉洞) ➨ 19:00 BGA還車 ➨ 國際通/牧志市場 ➨ 入住[托麗芙特酒店](https://torifito.jp/nahaab/) 
+
+Day5  3/25
+國際通 ➨ 牧志市場 ➨ Lawson買布丁 ➨ 酒店領行李 ➨ 13:30 搭機場接送前往機場辦登機 ➨  17:15 桃園機場(抵達下飛機、領取行李、入境、回家)
+
+# Functional Requirements (功能需求)
+請務必實作以下功能模組，並使用底部或頂部導航列切換分頁：
+
+1. **PLAN (行程表)**：
+* 將上述每日行程視覺化適時加入可愛icon，使用卡片並帶有時間軸呈現。
+* **每個行程加入「開啟 Google Maps」的按鈕連結**：連結的部分要使用**「標準的 Google Maps 搜尋連結」**，這樣才能正確跳轉到地圖App，穩定性最高。
+* **重點提醒**：針對重要集合時間（如機場集合、飛機起飛、包車出發），請用醒目的顏色標示。
+* **將行程從「靜態」轉為「動態」**：行程表頁面最底下新增一個「+ 新增行程」按鈕，按鈕可選擇**日期(Day?)**並**設有一個textarea可自由輸入行程**新增，，讓我在旅途中能隨時調整。
+* **刪除彈性**：新增的每條行程後方有一個垃圾桶icon，點一下垃圾桶就幫我刪除。
+* **自動排序**：程式會在我新增或修改後，自動依照時間(00:00 - 23:59)重新排列每一天的行程。
+
+2. **GUIDE (深度導覽)**：
+* 針對**那霸機場**、**美國村**、**Potama**、**A&W**、**美麗海水族館**、**古宇利島**、**Yakiniku Kochan**、**AEON**、**MEGA 唐吉訶德 名護店**、**許田休息站**、**Parco city**、**港川外人住宅**、**泊港漁市場**、**波上宮**、**國際通**、**牧志市場**、**iias 沖繩豐崎**、**DMM Kariyushi水族館**、**瀨長島**、**系滿漁市場**、**沖繩世界文化王國(玉泉洞)** ，撰寫深度的文字介紹其景點特色，並嵌入 OpenStreetMap 的 iframe 地圖。
+* 排版請像旅遊手冊，易於閱讀。
+
+3. **WALLET (記帳與匯率)**：
+* **即時換算**：包含一個計算機功能的匯率換算器（可自訂匯率，輸入算式如 500+200*3 按等於後自動算出總額並換算成台幣）。
+* **記帳功能**：
+* 欄位：品項、日幣金額、對應台幣金額。
+* **自動累計總額**：在記帳列表上方新增一個精緻的統計卡片，即時顯示目前的總支出（日幣/台幣）。
+* **照片上傳**：提供一個按鈕讓使用者「拍照」或「上傳照片」，需使用 JavaScript Canvas 將圖片壓縮並轉為 Base64 縮圖，再存入 LocalStorage（避免容量爆滿）。
+* **列表**：顯示記帳歷史、照片縮圖、日幣與台幣雙幣金額。
+* 所有資料需透過 LocalStorage 永久保存，重整網頁不消失。
+
+4. **LISTS (清單)**：
+* **包含「行前準備 CheckList」**並且有以下功能：
+* **（可打勾）預設項目**：護照、網卡、日文譯本、台灣駕照、日幣現鈔、信用卡、換洗衣物、個人藥物、ICOCA、悠遊卡、行動電源、鯊魚夾、拖鞋、、、
+* **底下設置「新增行前準備」按鈕**：讓使用者自行輸入自己要帶的東西，看起來要像一個專業的待辦清單，完成後勾選會變灰色並帶有刪除線。
+* **清空輸入框**：新增行前準備輸入後的體驗，點擊「新增」後會自動清空textarea輸入的文字。
+* **​刪除彈性**：新增的每條備忘錄後方有一個垃圾桶icon，點一下垃圾桶就幫我刪除。
+
+* **包含「個人備忘錄」**並且有以下功能：
+* 可自由輸入文字，若輸入的是網址，需自動轉換為可點擊的連結按鈕。
+* 備忘錄看起來要像一個專業的待辦清單，完成後勾選會變灰色並帶有刪除線。
+* **清空輸入框**：記帳輸入後的體驗，點擊「新增」後會自動清空項目名稱與金額。
+* **刪除彈性**：新增的每條備忘錄後方有一個垃圾桶icon，點一下垃圾桶就幫我刪除。
+
+5. **INFO (資訊)**：
+* 顯示當地天氣預報，底下放置連結日本氣象廳。
+* 顯示緊急聯絡資訊（警察、救護車、辦事處）。
+* 顯示旅遊禁忌或注意事項（如出入境違禁品）。
+
+# Technical Constraints (技術限制)
+* **Single File**：所有 CSS、JS 都要寫在同一個 HTML 檔案內，方便我直接傳送檔案給手機使用。
+* **RWD**：必須是 Mobile-First 設計，確保在手機上操作流暢。
+* **Library**：使用 Tailwind CSS (CDN) 進行排版，FontAwesome (CDN) 使用圖示。
+* **No Backend**：不使用任何後端資料庫，純前端運作。
+
+請生成完整的 HTML程式碼
+
+*****************************************************************************************************
+
+```
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>🌸 沖繩開心遊 🌸</title>
+  <title>🌸 沖繩 5 日遊 🌸</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,8 +115,8 @@
   <script>
     tailwind.config = {
       theme: {
-        extend: {
-          fontFamily: { sans: ['"M PLUS Rounded 1c"', 'sans-serif'] },
+        extend: {       
+          fontFamily: { sans: ['"Noto Sans TC"', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'] },
           colors: {
             mypink: { 50: '#fff0f5', 100: '#ffe4e1', 300: '#ffb6c1', 500: '#ff69b4', 600: '#ff1493' },
             myblue: { 100: '#e0f2fe', 300: '#7dd3fc' },
@@ -47,7 +144,7 @@
 <div id="app" class="max-w-md mx-auto bg-mypink-50 min-h-screen shadow-xl relative overflow-hidden">
   
   <header class="bg-mypink-300 text-white p-4 sticky top-0 z-50 shadow-md rounded-b-2xl flex justify-between items-center">
-    <h1 class="text-xl font-bold"><i class="fa-solid fa-plane-departure mr-2"></i>沖繩五日遊 🌴</h1>
+    <h1 class="text-xl font-bold">🌸 沖繩 5 日遊 🌸</h1>
     <span class="text-sm bg-mypink-500 px-3 py-1 rounded-full shadow">3/21 - 3/25</span>
   </header>
 
@@ -57,16 +154,16 @@
       
       <div class="bg-white rounded-2xl p-4 shadow-sm border-2 border-mypink-100 cute-card">
         <h2 class="text-lg font-bold text-mypink-600 mb-3 flex items-center">
-          <i class="fa-solid fa-plane text-myblue-300 mr-2"></i> 航班資訊 (峇迪航空)
+          <i class="fa-solid fa-plane text-myblue-300 mr-2"></i> 峇迪航空 (Batik Air)
         </h2>
-        <div class="space-y-3 text-sm">
-          <div class="bg-mypink-50 p-3 rounded-xl flex justify-between items-center">
-            <div><span class="bg-mypink-300 text-white px-2 py-0.5 rounded text-xs">去程 OD 882</span></div>
-            <div class="text-center font-bold">13:10 <i class="fa-solid fa-arrow-right mx-1 text-mypink-300"></i> 15:30<br><span class="text-xs text-gray-500">桃園 T1 ➔ 那霸</span></div>
+        <div class="text-sm  flex justify-around flex-col">
+          <div class="bg-mypink-50 p-3 rounded-xl flex justify-between items-center flex-col">
+            <div class="mb-3"><span class="bg-mypink-300 text-white px-2 py-0.5 rounded text-s font-bold">去程 OD 882</span></div>
+            <div class="text-center font-bold"><span class="text-xs text-gray-500"><i class="fa-solid fa-plane-departure mr-2"></i>桃園(TPE) T1 ➔ <i class="fa-solid fa-plane-arrival mr-2"></i>那霸(OKA)</span><br>13:10 <i class="fa-solid fa-arrow-right mx-1 text-mypink-300"></i> 15:30</div>
           </div>
-          <div class="bg-myblue-100 p-3 rounded-xl flex justify-between items-center">
-            <div><span class="bg-myblue-300 text-white px-2 py-0.5 rounded text-xs">回程 OD 883</span></div>
-            <div class="text-center font-bold">16:30 <i class="fa-solid fa-arrow-right mx-1 text-myblue-300"></i> 17:15<br><span class="text-xs text-gray-500">那霸 ➔ 桃園 T1</span></div>
+          <div class="bg-myblue-100 p-3 rounded-xl flex justify-between items-center flex-col">
+            <div class="mb-3"><span class="bg-myblue-300 text-white px-2 py-0.5 rounded text-s font-bold">回程 OD 883</span></div>
+            <div class="text-center font-bold"><span class="text-xs text-gray-500">那霸(OKA) ➔ 桃園(TPE) T1</span><br>16:30 <i class="fa-solid fa-arrow-right mx-1 text-myblue-300"></i> 17:15</div>
           </div>
         </div>
       </div>
@@ -91,7 +188,7 @@
               
               <div class="flex flex-col gap-2">
                 <a :href="'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(item.title)" 
-                   target="_blank" class="bg-myblue-100 text-myblue-300 p-2 rounded-full text-center shadow-sm">
+                   target="_blank" class="bg-[#edf8ff] text-myblue-300 p-2 rounded-full text-center shadow-sm">
                   <i class="fa-solid fa-location-dot"></i>
                 </a>
                 <button v-if="item.isCustom" @click="deleteItinerary(day.dayNumber, item.id)" class="text-red-400 p-2 hover:bg-red-50 rounded-full">
@@ -104,7 +201,7 @@
       </div>
 
       <div class="bg-mypink-100 rounded-2xl p-4 shadow-sm border-2 border-mypink-300 border-dashed">
-        <h3 class="font-bold text-mypink-600 mb-2"><i class="fa-solid fa-plus mr-1"></i> 新增自訂行程</h3>
+        <h3 class="font-bold text-mypink-600 mb-2"><i class="fa-solid fa-plus mr-1"></i> 新增行程</h3>
         <div class="flex space-x-2 mb-2">
           <select v-model="newPlan.day" class="p-2 rounded-xl flex-1 border-none focus:ring-2 focus:ring-mypink-300">
             <option value="1">Day 1 (3/21)</option>
@@ -163,13 +260,13 @@
         
         <div class="flex items-center gap-3 mb-3">
           <label class="bg-myblue-100 text-myblue-300 px-4 py-2 rounded-xl cursor-pointer text-sm font-bold flex-1 text-center">
-            <i class="fa-solid fa-camera mr-1"></i> 拍照 / 上傳發票
+            <i class="fa-solid fa-camera mr-1"></i> 拍照 / 上傳收據
             <input type="file" accept="image/*" capture="environment" @change="handleImageUpload" class="hidden">
           </label>
           <img v-if="newExpense.photo" :src="newExpense.photo" class="w-12 h-12 rounded-xl object-cover border border-gray-200">
         </div>
 
-        <button @click="addExpense" class="w-full bg-mypink-500 text-white font-bold py-2 rounded-xl shadow-md">記上一筆</button>
+        <button @click="addExpense" class="w-full bg-mypink-500 text-white font-bold py-2 rounded-xl shadow-md">新增花費</button>
       </div>
 
       <div class="space-y-2">
@@ -281,7 +378,7 @@
       <i class="fa-solid fa-wallet text-xl mb-1"></i><span class="text-[10px] font-bold">記帳</span>
     </button>
     <button @click="currentTab = 'lists'" :class="currentTab === 'lists' ? 'text-mypink-500' : 'text-gray-400'" class="flex flex-col items-center p-2 transition-colors">
-      <i class="fa-solid fa-list-check text-xl mb-1"></i><span class="text-[10px] font-bold">清單</span>
+      <i class="fa-solid fa-list-check text-xl mb-1"></i><span class="text-[10px] font-bold">筆記</span>
     </button>
     <button @click="currentTab = 'info'" :class="currentTab === 'info' ? 'text-mypink-500' : 'text-gray-400'" class="flex flex-col items-center p-2 transition-colors">
       <i class="fa-solid fa-circle-info text-xl mb-1"></i><span class="text-[10px] font-bold">資訊</span>
@@ -307,7 +404,7 @@
       { id: 201, time: '09:00', title: 'Potama 或 A&W', desc: '早餐二選一，必吃沖繩飯糰', isHighlight: false, isCustom: false },
       { id: 202, time: '10:30', title: '美麗海水族館', desc: '看黑潮之海大水槽', isHighlight: false, isCustom: false },
       { id: 203, time: '13:30', title: '漁師食堂', desc: '吃海鮮午餐', isHighlight: false, isCustom: false },
-      { id: 204, time: '15:00', title: '古宇利島', desc: '大橋、古宇利塔、愛心石、休息站', isHighlight: false, isCustom: false },
+      { id: 204, time: '15:00', title: '古宇利島', desc: '古宇利大橋、古宇利塔、愛心石、休息站', isHighlight: false, isCustom: false },
       { id: 205, time: '17:30', title: 'Yakiniku Kochan', desc: '燒肉晚餐', isHighlight: false, isCustom: false },
       { id: 206, time: '19:30', title: 'AEON 名護店', desc: 'Uniqlo, Daiso, Best Denki', isHighlight: false, isCustom: false },
       { id: 207, time: '21:00', title: 'MEGA 唐吉訶德 名護店', desc: '採購零食藥妝', isHighlight: false, isCustom: false },
@@ -320,7 +417,8 @@
       { id: 304, time: '16:00', title: '泊港漁市場', desc: '吃生魚片', isHighlight: false, isCustom: false },
       { id: 305, time: '17:30', title: '波上宮', desc: '懸崖上的神宮', isHighlight: false, isCustom: false },
       { id: 306, time: '18:30', title: '入住 托麗芙特酒店', desc: '那霸 Check in', isHighlight: false, isCustom: false },
-      { id: 307, time: '19:30', title: '國際通 / 牧志市場', desc: '市區逛街吃晚餐', isHighlight: false, isCustom: false }
+      { id: 307, time: '19:30', title: '國際通 / 牧志市場', desc: '市區逛街吃晚餐', isHighlight: false, isCustom: false },
+      { id: 308, time: '21:30', title: '回飯店 托麗芙特酒店', desc: '整理行李', isHighlight: false, isCustom: false }
     ]},
     { dayNumber: 4, date: '3/24', items: [
       { id: 401, time: '10:00', title: 'iias 沖繩豐崎', desc: 'A&W, DMM水族館, Uniqlo, 西松屋', isHighlight: false, isCustom: false },
@@ -343,10 +441,12 @@
   // 預設準備清單
   const defaultLists = [
     { text: '護照', checked: false, type: 'prep' }, { text: '網卡', checked: false, type: 'prep' },
-    { text: '日文譯本 & 台灣駕照', checked: false, type: 'prep' }, { text: '日幣現鈔', checked: false, type: 'prep' },
-    { text: '信用卡 (綁定Apple Pay)', checked: false, type: 'prep' }, { text: '換洗衣物', checked: false, type: 'prep' },
-    { text: '個人藥物 (腸胃藥/止痛藥)', checked: false, type: 'prep' }, { text: 'ICOCA / 悠遊卡', checked: false, type: 'prep' },
-    { text: '行動電源 & 充電線', checked: false, type: 'prep' }, { text: '鯊魚夾 / 拖鞋', checked: false, type: 'prep' }
+    { text: '日文譯本', checked: false, type: 'prep' }, { text: '台灣駕照', checked: false, type: 'prep' },
+    { text: '換洗衣物', checked: false, type: 'prep' }, { text: '日幣現鈔', checked: false, type: 'prep' },
+    { text: '信用卡', checked: false, type: 'prep' }, { text: 'ICOCA', checked: false, type: 'prep' },
+    { text: '悠遊卡', checked: false, type: 'prep' }, { text: '個人藥物 (腸胃藥/止痛藥)', checked: false, type: 'prep' }, 
+    { text: '行動電源', checked: false, type: 'prep' }, { text: '充電線', checked: false, type: 'prep' },
+    { text: '鯊魚夾', checked: false, type: 'prep' }, { text: '拖鞋', checked: false, type: 'prep' }
   ];
 
   // 景點導覽資料 (加入經緯度供 OSM 使用)
@@ -545,3 +645,5 @@
 </script>
 </body>
 </html>
+
+```
